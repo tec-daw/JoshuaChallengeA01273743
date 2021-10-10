@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useState} from 'react';
 import Card from './Card';
+import html2canvas from 'html2canvas';
 
 function App() {
   const [lname, setlname] = useState('');
@@ -48,6 +49,81 @@ function App() {
     setNombrep('');
     setStatus('initial');
     setIsDisabled(false);      
+  }
+
+  function clickRandomize(event){
+    
+    const lnamearray=["Dua", "Kendall", "Nicole", "Fernanda", "Alexandra", "Ed", "Miguel", "Ben", "Harry", "Niall"];
+    const Adjetivoarray=["espectacular", "irresistible", "ejemplar", "sublime", "extravagante", "interesante", "amable", "afable", "horripilante", "antojable"];
+    const Action1array=["cenar", "bailar", "nadar", "cantar", "dormir", "ligar", "amar", "leer", "escribir", "dibujar"];
+    const Cosa1array=["yoyos", "niños", "berrinches", "regaños", "gatos", "perros", "bebés", "anuncios", "trabajos", "videojuegos"];
+    const Cuerpo1array=["ojo", "rostro", "cuerpo", "pie", "pelo", "labio", "dedo", "riñón", "corazón", "trasero"];
+    const Casa1array=["chochera", "sala", "cocina", "cuarto", "baño", "patio", "puerta", "alberca", "hamaca", "bodega"];
+    const Cosa2array=["bujias", "perros", "trofeos", "premios", "carros", "ventanas", "trastes", "motocicletas", "sentimientos", "deseos"];
+    const Numberarray=["mil", "milochomil", "cien", "un", "tres", "once", "trece", "11", "13", "1000"];
+    const Adjetivo2array=["belleza", "hermosura", "elegancia", "magnificencia", "lindura", "perfección", "preciosidad", "atractivo", "encando", "estética"];
+    const Nombreparray=["Josué", "Alejandro", "Omar", "Zayn", "Britney", "Miley", "Olivia", "Taylor", "Luis", "Anne"];
+
+    let lnamelength = lnamearray.length;
+    let lnamei = (Math.floor(Math.random() * lnamelength));
+    let lnamer = lnamearray[lnamei];
+
+    let Adjetivolength = Adjetivoarray.length;
+    let Adjetivoi = (Math.floor(Math.random() * Adjetivolength));
+    let Adjetivor = Adjetivoarray[Adjetivoi];
+
+    let action1length = Action1array.length;
+    let action1i = (Math.floor(Math.random() * action1length));
+    let action1r = Action1array[action1i];
+
+    let cosa1length = Cosa1array.length;
+    let cosa1i = (Math.floor(Math.random() * cosa1length));
+    let cosa1r = Cosa1array[cosa1i];
+
+    let cuerpo1length = Cuerpo1array.length;
+    let cuerpo1i = (Math.floor(Math.random() * cuerpo1length));
+    let cuerpo1r = Cuerpo1array[cuerpo1i];
+
+    let casa1length = Casa1array.length;
+    let casa1i = (Math.floor(Math.random() * casa1length));
+    let casa1r = Casa1array[casa1i];
+
+    let cosa2length = Cosa2array.length;
+    let cosa2i = (Math.floor(Math.random() * cosa2length));
+    let cosa2r = Cosa2array[cosa2i];
+
+    let numberlength = Numberarray.length;
+    let numberi = (Math.floor(Math.random() * numberlength));
+    let numberr = Numberarray[numberi];
+
+    let Adjetivo2length = Adjetivo2array.length;
+    let Adjetivo2i = (Math.floor(Math.random() * Adjetivo2length));
+    let Adjetivo2r = Adjetivo2array[Adjetivo2i];
+
+    let nombreplength = Nombreparray.length;
+    let nombrepi = (Math.floor(Math.random() * nombreplength));
+    let nombrepr = Nombreparray[nombrepi];
+
+    setlname(lnamer);
+    setAdjetivo(Adjetivor);
+    setAction1(action1r);
+    setCosa1(cosa1r);
+    setCuerpo1(cuerpo1r);
+    setCasa1(casa1r);
+    setCosa2(cosa2r);
+    setNumber(numberr);
+    setAdjetivo2(Adjetivo2r);
+    setNombrep(nombrepr);
+  }
+
+  function clickPrint(event){
+    if (status==="complete"){
+      var c = document.getElementById("canvas");
+
+      html2canvas(c).then(function(canvas) {
+          document.body.appendChild(canvas);
+      });
+    }
   }
 
   return (
@@ -112,6 +188,11 @@ function App() {
 
                 <button className="btn" id="reset" type="button" onClick={handleClick}>Reset</button>
               </div>
+              <div className="btns">
+                <button className="btn" id="random" type="button" onClick={clickRandomize}>Random</button>
+                <button className="btn" id="print" type="button" onClick={clickPrint}>Print</button>
+              </div>
+
             </div>
            
           </form>

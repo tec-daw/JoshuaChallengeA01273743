@@ -132,7 +132,25 @@
 }
 
 
+#random{
+  background-color: #A200BA;
+}
 
+#print{
+  background-color: #00B71E;
+}
+
+#random:hover{
+  background-color: #8B00A0;
+}
+
+#print:hover{
+  background-color: #00A71B;
+}
+
+canvas{
+  border-radius: 2em; width: 1536px; height: 722px; position: fixed; top: 0px; left: 311px; opacity: 1; transform: scale(0.8); z-index: 99999999; transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s, opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s, -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s;
+}
 
 
 .wrapper {
